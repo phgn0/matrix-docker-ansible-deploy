@@ -112,9 +112,7 @@ matrix_mautrix_telegram_appservice_database: "{{
 
 
 # Can be set to enable automatic double-puppeting via Shared Secret Auth (https://github.com/devture/matrix-synapse-shared-secret-auth).
-matrix_mautrix_telegram_login_shared_secret: "{{ matrix_synapse_ext_password_provider_shared_secret_auth_shared_secret }}"
-matrix_mautrix_telegram_bridge_login_shared_secret_map:
-  "{{ {matrix_mautrix_telegram_homeserver_domain: ('as_token:' + matrix_mautrix_telegram_login_shared_secret)} }}"
+matrix_mautrix_telegram_login_shared_secret: ''
 
 # Default configuration template which covers the generic use case.
 # You can customize it by controlling the various variables inside it.
