@@ -70,7 +70,6 @@ matrix_mautrix_twitter_appservice_database: "{{
 
 # Can be set to enable automatic double-puppeting via Shared Secret Auth (https://github.com/devture/matrix-synapse-shared-secret-auth).
 matrix_mautrix_twitter_login_shared_secret: ''
-
 matrix_mautrix_twitter_bridge_login_shared_secret_map: "{{ {matrix_mautrix_twitter_homeserver_domain: matrix_mautrix_twitter_login_shared_secret} if matrix_mautrix_twitter_login_shared_secret else {} }}"
 
 matrix_mautrix_twitter_appservice_bot_username: twitterbot
@@ -120,6 +119,9 @@ matrix_mautrix_twitter_registration_yaml: |
       regex: '^@twitter_.+:{{ matrix_mautrix_twitter_homeserver_domain | regex_escape }}$'
     - exclusive: true
       regex: '^@{{ matrix_mautrix_twitter_appservice_bot_username | regex_escape }}:{{ matrix_mautrix_twitter_homeserver_domain | regex_escape }}$'
+    # allow editing puppeted messages to fix timestamps
+    - exclusive: false
+      regex: '^@.+:{{ matrix_mautrix_twitter_homeserver_domain | regex_escape }}$'
   url: {{ matrix_mautrix_twitter_appservice_address }}
   # See https://github.com/tulir/mautrix-signal/issues/43
   sender_localpart: _bot_{{ matrix_mautrix_twitter_appservice_bot_username }}

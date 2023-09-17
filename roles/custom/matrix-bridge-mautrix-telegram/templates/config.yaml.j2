@@ -139,12 +139,12 @@ bridge:
     # Whether or not to use /sync to get presence, read receipts and typing notifications when using
     # your own Matrix account as the Matrix puppet for your Telegram account.
     sync_with_custom_puppets: true
-    # Shared secret for https://github.com/devture/matrix-synapse-shared-secret-auth
+    # Shared secrets for https://github.com/devture/matrix-synapse-shared-secret-auth
     #
-    # If set, custom puppets will be enabled automatically for local users
+    # If set, double puppeting will be enabled automatically for local users
     # instead of users having to find an access token and run `login-matrix`
     # manually.
-    login_shared_secret: {{ matrix_mautrix_telegram_login_shared_secret|to_json }}
+    login_shared_secret_map: {{ matrix_mautrix_telegram_bridge_login_shared_secret_map|to_json }}
     # Set to false to disable link previews in messages sent to Telegram.
     telegram_link_preview: true
     # Use inline images instead of a separate message for the caption.
