@@ -132,12 +132,12 @@ bridge:
     # Whether or not to sync with custom puppets to receive EDUs that
     # are not normally sent to appservices.
     sync_with_custom_puppets: true
-    # Shared secrets for https://github.com/devture/matrix-synapse-shared-secret-auth
+    # Shared secret for https://github.com/devture/matrix-synapse-shared-secret-auth
     #
-    # If set, double puppeting will be enabled automatically for local users
+    # If set, custom puppets will be enabled automatically for local users
     # instead of users having to find an access token and run `login-matrix`
     # manually.
-    login_shared_secret_map: {{ matrix_beeper_linkedin_bridge_login_shared_secret_map|to_json }}
+    login_shared_secret: {{ matrix_beeper_linkedin_login_shared_secret|to_json }}
 
     # Allow using double puppeting from any server with a valid client .well-known file.
     double_puppet_allow_discovery: false

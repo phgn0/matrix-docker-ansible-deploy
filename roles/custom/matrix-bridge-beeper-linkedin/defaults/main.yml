@@ -80,7 +80,6 @@ matrix_beeper_linkedin_appservice_database_uri: "{{
 
 # Can be set to enable automatic double-puppeting via Shared Secret Auth (https://github.com/devture/matrix-synapse-shared-secret-auth).
 matrix_beeper_linkedin_login_shared_secret: ''
-matrix_beeper_linkedin_bridge_login_shared_secret_map: "{{ {matrix_beeper_linkedin_homeserver_domain: matrix_beeper_linkedin_login_shared_secret} if matrix_beeper_linkedin_login_shared_secret else {} }}"
 
 # Specifies the default log level for all bridge loggers.
 matrix_beeper_linkedin_logging_level: WARNING
